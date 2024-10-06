@@ -5,7 +5,6 @@ function renderCartContents() {
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 
-  // Mostrar el total y la div si hay productos
   if (cartItems.length > 0) {
     document.querySelector(".cart-footer").classList.remove("hide");
     const total = calculateTotal(cartItems);
@@ -35,12 +34,10 @@ function calculateTotal(cartItems) {
 }
 
 function clearCart() {
-  localStorage.removeItem("so-cart"); // Elimina el carrito del localStorage
-  renderCartContents(); // Vuelve a renderizar el carrito
+  localStorage.removeItem("so-cart"); 
+  renderCartContents(); 
 }
 
-// Agregar el event listener al botón de eliminar todo
 document.getElementById("clear-cart").addEventListener("click", clearCart);
 
-// Renderizar el contenido del carrito al cargar la página
 renderCartContents();
