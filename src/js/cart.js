@@ -1,4 +1,9 @@
 import { getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadHeaderFooter();
+});
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -34,8 +39,8 @@ function calculateTotal(cartItems) {
 }
 
 function clearCart() {
-  localStorage.removeItem("so-cart"); 
-  renderCartContents(); 
+  localStorage.removeItem("so-cart");
+  renderCartContents();
 }
 
 document.getElementById("clear-cart").addEventListener("click", clearCart);

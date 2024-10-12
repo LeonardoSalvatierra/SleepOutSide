@@ -202,7 +202,6 @@ button {
   grid-column: 3;
 }
 
-
 .btn {
   padding: 10px 15px;
   background-color: #ff4d4d;
@@ -232,7 +231,6 @@ button {
   font-size: 1.2em;
   font-weight: bold;
 }
-
 
 @media screen and (min-width: 500px) {
   body {
