@@ -28,5 +28,24 @@ export default class ShoppingCart {
     const cartItems = getLocalStorage(this.key);
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
+
+    if (cartItems.length > 0) {
+      document.querySelector(".cart-footer").classList.remove("hide");
+      const total = calculateTotal(cartItems);
+      document.getElementById("cart-total").textContent = total.toFixed(2);
+    } else {
+      document.querySelector(".cart-footer").classList.add("hide");
+    }
   }
 }
+
+function calculateTotal(cartItems) {
+  return cartItems.reduce((total, item) => total + item.FinalPrice, 0);
+}
+
+function clearCart() {
+  localStorage.removeItem("so-cart");
+  renderCartContents();
+}
+
+document.getElementById("clear-cart").addEventListener("click", clearCart);
