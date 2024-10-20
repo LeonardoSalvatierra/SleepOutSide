@@ -9,3 +9,11 @@ const element = document.querySelector(".product-list");
 const listing = new ProductList(category, dataSource, element);
 
 listing.init();
+
+const sortSelect = document.getElementById("sort-select");
+if (sortSelect) {
+  sortSelect.addEventListener("change", (event) => {
+    const sortBy = event.target.value;
+    listing.sortAndRender(sortBy);
+  });
+}

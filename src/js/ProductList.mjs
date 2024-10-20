@@ -20,23 +20,34 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
+    this.products = [];
   }
   async init() {
-    // our dataSource will return a Promise...so we can use await to resolve it.
-    const list = await this.dataSource.getData(this.category);
-    // render the list
-    this.renderList(list);
-    //set the title to the current category
-    document.querySelector(".title").innerHTML = this.category;
-  }
-  // render after doing the first stretch
-  renderList(list) {
-    renderListWithTemplate(productCardTemplate, this.listElement, list);
+    try {
+      // Obtiene los datos de los productos y almacénalos en this.products
+      const list = await this.dataSource.getData(this.category);
+      this.products = list || []; // Asegúrate de que sea un arreglo aunque esté vacío
+      this.renderList(this.products); // Renderiza la lista de productos
+      document.querySelector(".title").textContent = this.category; // Muestra la categoría actual
+    } catch (error) {
+      console.error("Error loading products:", error);
+    }
   }
 
-  // render before doing the stretch
-  // renderList(list) {
-  //   const htmlStrings = list.map(productCardTemplate);
-  //   this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
-  // }
+  renderList(list) {
+    // Renderiza la lista en el DOM
+    renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", true);
+  }
+
+  sortAndRender(criteria) {
+    // Ordena la lista de productos en función del criterio
+    let sortedList = [...this.products]; // Copia el arreglo para no modificar el original
+    if (criteria === "name") {
+      sortedList.sort((a, b) => a.Name.localeCompare(b.Name));
+    } else if (criteria === "price") {
+      sortedList.sort((a, b) => a.FinalPrice - b.FinalPrice);
+    }
+    // Vuelve a renderizar la lista ordenada
+    this.renderList(sortedList);
+  }
 }

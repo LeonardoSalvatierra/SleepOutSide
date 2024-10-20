@@ -191,6 +191,21 @@ button {
 .card__name {
   font-size: 1em;
 }
+/* Product list Sorted by Name or Price */
+.sort-options {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sort-options label {
+  margin-right: 10px;
+}
+
+.sort-options select {
+  padding: 5px;
+  font-size: 1rem;
+}
 /* End product list card */
 
 .product-detail {
