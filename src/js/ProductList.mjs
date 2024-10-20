@@ -23,14 +23,12 @@ export default class ProductList {
     this.products = [];
   }
   async init() {
-    try {
-      const list = await this.dataSource.getData(this.category);
-      this.products = list || []; 
-      this.renderList(this.products); 
-      document.querySelector(".title").textContent = this.category; 
-    } catch (error) {
-      console.error("Error loading products:", error);
-    }
+    
+    const list = await this.dataSource.getData(this.category);
+    this.products = list || []; 
+    this.renderList(this.products); 
+    document.querySelector(".title").textContent = this.category; 
+  
   }
 
   renderList(list) {
