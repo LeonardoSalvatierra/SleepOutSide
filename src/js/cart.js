@@ -8,4 +8,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const cart = new ShoppingCart("so-cart", ".product-list");
 cart.renderCartContents();
-
