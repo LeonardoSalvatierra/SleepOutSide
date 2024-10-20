@@ -24,30 +24,28 @@ export default class ProductList {
   }
   async init() {
     try {
-      // Obtiene los datos de los productos y almacénalos en this.products
       const list = await this.dataSource.getData(this.category);
-      this.products = list || []; // Asegúrate de que sea un arreglo aunque esté vacío
-      this.renderList(this.products); // Renderiza la lista de productos
-      document.querySelector(".title").textContent = this.category; // Muestra la categoría actual
+      this.products = list || []; 
+      this.renderList(this.products); 
+      document.querySelector(".title").textContent = this.category; 
     } catch (error) {
       console.error("Error loading products:", error);
     }
   }
 
   renderList(list) {
-    // Renderiza la lista en el DOM
     renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", true);
   }
 
   sortAndRender(criteria) {
-    // Ordena la lista de productos en función del criterio
-    let sortedList = [...this.products]; // Copia el arreglo para no modificar el original
+    
+    let sortedList = [...this.products]; 
     if (criteria === "name") {
       sortedList.sort((a, b) => a.Name.localeCompare(b.Name));
     } else if (criteria === "price") {
       sortedList.sort((a, b) => a.FinalPrice - b.FinalPrice);
     }
-    // Vuelve a renderizar la lista ordenada
+    
     this.renderList(sortedList);
   }
 }
