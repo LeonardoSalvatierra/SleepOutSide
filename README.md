@@ -21,3 +21,5 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 
 ## Link to the SleepOutside page hosted by Netlify.
 - https://sleepoutsideleosalvat.netlify.app
+## Link to the SleepOutside page on GitHub io.
+https://leonardosalvatierra.github.io/SleepOutSide/src/index.html
