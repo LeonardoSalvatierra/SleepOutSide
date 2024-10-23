@@ -16,7 +16,7 @@
   <body>
     <header class="divider" id="main-header"></header>
 
-    <main class="divider">
+    <!-- <main class="divider">
       <section class="products">
         <h2>My Cart</h2>
 
@@ -24,13 +24,22 @@
         <div class="cart-footer hide">
           <p class="cart-total">Total: $<span id="cart-total"></span></p>
           <button id="clear-cart" class="btn">Delete All</button>
-          <a href="../checkout/index.html" id="checkout-btn" class="btn"
-            >Checkout</a
-          >
+          <a href="../checkout/index.html" id="checkout-btn" class="btn">Checkout</a>
+        </div>
+      </section>
+    </main> -->
+    <main class="divider">
+      <section class="products">
+        <h2>My Cart</h2>
+
+        <ul class="product-list"></ul>
+        <div class="list-footer hide">
+          <p class="list-total">Total:</p>
+          <a href="../checkout/index.html" id="checkout-btn" class="btn">Checkout</a>
+          <button id="clear-cart" class="btn">Delete All</button>
         </div>
       </section>
     </main>
-
     <footer id="main-footer"></footer>
   </body>
 </html>
