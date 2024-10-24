@@ -336,7 +336,7 @@ button {
 }
 
 .list-footer {
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -363,7 +363,7 @@ button {
     grid-template-columns: 150px auto 15%;
   }
   .list-footer {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
   }
