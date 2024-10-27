@@ -44,6 +44,7 @@ export default class ProductDetails {
     // then add the current product to the list
     cartContents.push(this.product);
     setLocalStorage("so-cart", cartContents);
+    alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
