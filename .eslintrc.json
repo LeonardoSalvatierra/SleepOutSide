@@ -7,8 +7,8 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2020
   },
   "rules": {
     "no-unused-vars": [
